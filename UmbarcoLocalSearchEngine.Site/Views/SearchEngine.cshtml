@@ -1,0 +1,45 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.SearchEngine>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Search Engine</title>
+    <link rel="stylesheet" href="~/css/Search/style.css" />
+    <script src="https://kit.fontawesome.com/96923c1b5d.js" crossorigin="anonymous"></script>
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/scripts/Search/index.js" crossorigin="anonymous"></script>
+    
+</head>
+
+@if (Model.Image != null)
+{
+    <body>
+        <div class="background" style="background-image: url(@Model.Image.Url());"></div>
+        <div class="container">
+            <header>
+                <h1>@Model.Title</h1>
+                <p>@Model.Moto</p>
+            </header>
+            <main>
+                <div class="search-box">
+                    <input type="text" name="searchTerm" id="searchTerm" placeholder="Search..." value="@ViewBag.SearchTerm" />
+                    <i class="fas fa-search"></i>
+                </div>
+                <div id="searchResults"></div>
+            </main>
+            <footer>
+                <p>&copy; @DateTime.Now.Year Semir Hamid</p>
+            </footer>
+        </div>
+    </body>
+}
+
+</html>
